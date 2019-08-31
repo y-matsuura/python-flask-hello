@@ -12,10 +12,6 @@ ADD hello.py $project_dir
 WORKDIR $project_dir
 RUN pip install -r requirements.txt
 
-# （コンテナ内で作業する場合）必要なパッケージをインストール
-RUN apk update
-RUN apk add zsh vim tmux git tig
-
 # flaskアプリケーションの起動
 ENV FLASK_APP /web/hello/hello.py
 CMD flask run -h 0.0.0.0 -p $PORT
